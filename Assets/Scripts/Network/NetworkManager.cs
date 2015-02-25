@@ -13,7 +13,7 @@ public class NetworkManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		MasterServer.ipAddress = masterIP;
+	//	MasterServer.ipAddress = masterIP;
 	}
 	
 	// Update is called once per frame
