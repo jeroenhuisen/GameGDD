@@ -69,4 +69,13 @@ public class PlayerController : MonoBehaviour {
 			syncStartPosition = rigidbody.position;
 		}
 	}
+
+	void OnDisconnectedFromServer() {
+		Debug.Log (" Disconnected from server");
+		if (Network.isServer) {
+			Debug.Log ("Disconnected is servert");
+			Network.RemoveRPCs(networkView.viewID);
+			Network.Destroy(gameObject);
+		}
+	}
 }

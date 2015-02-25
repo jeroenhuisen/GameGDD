@@ -57,9 +57,27 @@ public class NetworkManager : MonoBehaviour {
 		SpawnPlayer ();
 	}
 
+	void OnPlayerDisconnected(NetworkPlayer player)
+	{
+		Debug.Log("Clean up after player " + player);
+		Network.RemoveRPCs(player);
+		Network.DestroyPlayerObjects(player);
+	}
+
+	void OnDisconnectedFromServer()
+	{
+		Debug.Log ("disconnected from server");
+		DestroyPlayer ();
+	}
+
 	private void SpawnPlayer ()
 	{
 		Network.Instantiate(playerPrefab, new Vector3(10f,5f,-10f), Quaternion.identity, 0);
+	}
+	private void DestroyPlayer()
+	{
+		//Network.Destroy (playerPrefab);
+		Debug.Log( "DESTROYEDDDDD!!");
 	}
 
 	void OnGUI()
