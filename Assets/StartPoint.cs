@@ -2,14 +2,23 @@
 using System.Collections;
 
 public class StartPoint : Checkpoint {
-	void Start(){
-		previousCheckpoint = this;
-	}
+	private bool started = false;
 
 	void OnTriggerEnter(Collider trigger){
-		if (trigger.tag == "Player") {
-			Debug.Log ( "Player start");
-			passed = true;
+		if (!started) {
+			if (trigger.tag == "Player") {
+				Debug.Log ("Player start");
+				passed = true;
+				started = true;
+			}
+		} else {
+			if (trigger.tag == "Player") {
+				if (previousCheckpoint.IsPassed ()) {
+					passed = true;
+					previousCheckpoint.ResetPassed ();
+					Debug.Log ("Player passed the start" + trigger.GetInstanceID ());
+				}
+			}
 		}
 	}
 }

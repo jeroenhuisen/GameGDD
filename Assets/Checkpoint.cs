@@ -18,6 +18,7 @@ public class Checkpoint : MonoBehaviour {
 		if(trigger.tag == "Player"){
 			if(previousCheckpoint.IsPassed()){
 				passed = true;
+				previousCheckpoint.ResetPassed();
 				Debug.Log("Player passed the checkpoint" + trigger.GetInstanceID());
 			}
 		}
@@ -25,5 +26,9 @@ public class Checkpoint : MonoBehaviour {
 
 	public bool IsPassed(){
 		return passed;
+	}
+
+	public void ResetPassed(){
+		passed = false;
 	}
 }
