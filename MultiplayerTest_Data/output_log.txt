@@ -12,40 +12,38 @@ Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\Mul
 Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.090 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+- Completed reload, in  0.059 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1200 at 0,-120
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTest_Data\Managed\System.Core.dll (this message is harmless)
-Clean up after player 1
+Player passed the finishline-10110
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Player passed the finishline-10094
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Player passed the finishline-10094
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Player passed the finishline-10110
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 745)
+
+ Disconnected from server
  
 (Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
 
  Disconnected from server
  
 (Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
-
-Disconnected is servert
- 
-(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
-
-Couldn't send RPC function '__RPCNetworkDestroy'
-
- 
-(Filename:  Line: 2463)
-
- Disconnected from server
- 
-(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
-
-Disconnected is servert
- 
-(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
-
-Couldn't send RPC function '__RPCNetworkDestroy'
-
- 
-(Filename:  Line: 2463)
 
 disconnected from server
  
