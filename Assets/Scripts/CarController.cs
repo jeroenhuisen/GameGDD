@@ -19,21 +19,23 @@ public class CarController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Vector3 temp = rigidbody.centerOfMass;
-		temp.y = -0.9f; //the f indicates that this is a floating point variable.
+		print (temp);
+		temp.y = -0.9f;
+		//temp.y = -0.5f;
 		rigidbody.centerOfMass = temp;
 	}
 
 	void FixedUpdate(){
 		float angle = Input.GetAxis ("Horizontal");
-		float speed = Input.GetAxis ("RightTrigger");
-		float breakSpeed = Input.GetAxis("LeftTrigger");
-		//float speed = Input.GetAxis ("Vertical");
+		//float speed = Input.GetAxis ("RightTrigger");
+		//float breakSpeed = Input.GetAxis("LeftTrigger");
+		float speed = Input.GetAxis ("Vertical");
 		wheel_LB.motorTorque = maxTorque * -speed;
 		wheel_RB.motorTorque = maxTorque * -speed;
 		wheel_LF.steerAngle = maxSteeringAngle * angle;
 		wheel_RF.steerAngle = maxSteeringAngle * angle;
-		wheel_LB.brakeTorque = maxBreakTorque * breakSpeed;
-		wheel_RB.brakeTorque = maxBreakTorque * breakSpeed;
+		//wheel_LB.brakeTorque = maxBreakTorque * breakSpeed;
+		//wheel_RB.brakeTorque = maxBreakTorque * breakSpeed;
 
 		if (Input.GetButton("Submit")){
 			transform.position = new Vector3(0.0f,5.0f,0.0f);

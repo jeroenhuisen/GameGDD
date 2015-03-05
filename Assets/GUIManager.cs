@@ -34,8 +34,11 @@ public class GUIManager : MonoBehaviour {
 		}*/
 	}
 
-	public void AddButton(int positionX, int positionY, int height, int width){
+/*	public Rect AddButton(int positionX, int positionY, int height, int width){
 		positionX = Screen.width / positionX;
 		positionY = Screen.height / positionY;
-	}
+		height = Screen.width / height;
+		width = Screen.width / width;
+		return new Rect (positionX, positionY, height, width);
+	}*/
 }
