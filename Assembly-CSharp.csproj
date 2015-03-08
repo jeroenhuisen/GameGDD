@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\GUIManager.cs" />
+     <Compile Include="Assets\PauseMenu.cs" />
+     <Compile Include="Assets\RoundTimer.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CarController.cs" />
      <Compile Include="Assets\Scripts\Checkpoint.cs" />
