@@ -8,20 +8,48 @@ Direct3D:
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.049 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+- Completed reload, in  0.064 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1200 at 0,-120
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\System.Core.dll (this message is harmless)
+MainMenu -> SelectMap
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Received pong from 192.168.178.19:25000
+ 
+(Filename:  Line: 836)
+
+Received pong from 192.168.178.13:25000
+ 
+(Filename:  Line: 836)
+
+(-0.5, 0.1, 0.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+(-0.5, 0.1, 0.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 745)
+
  Disconnected from server
  
 (Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
 
-Disconnected is servert
+ Disconnected from server
  
 (Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
 

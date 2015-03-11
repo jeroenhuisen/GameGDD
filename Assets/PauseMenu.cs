@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PauseMenu : MonoBehaviour {
 	private bool standby = true;
-	public bool gameIsActive = true;
 	public MainMenuGUI mainMenu;
+	public GameManager game;
 	// Use this for initialization
 	void Start () {
 		standby = true;
@@ -12,8 +12,9 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameIsActive) {
+		if (game.IsActive()) {
 			if (Input.GetKeyDown (KeyCode.Escape)) {
+				game.PauseGame();
 				Enable ();
 			} 
 		}
@@ -26,6 +27,7 @@ public class PauseMenu : MonoBehaviour {
 			
 			if (GUI.Button (new Rect (width / 2 - 125, height / 4, 250, 100), "Return")) {
 				standby = true;
+				game.ReturnGame();
 			}
 			if (GUI.Button (new Rect (width / 2 - 125, height / 4 + 150, 250, 100), "Something")) {
 				//SearchHosts ();

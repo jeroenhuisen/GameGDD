@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\GUIManager.cs" />
+     <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\PauseMenu.cs" />
      <Compile Include="Assets\RoundTimer.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
@@ -60,9 +61,16 @@
      <Compile Include="Assets\Scripts\SettingsGUI.cs" />
      <Compile Include="Assets\Scripts\StartPoint.cs" />
      <Compile Include="Assets\Scripts\WheelController.cs" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>C:/Users/Jeroen/Documents/School/Jaar3/BlokA/game/GameGDD/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{DF8E3AA3-F933-C351-3057-55D832D71FF5}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

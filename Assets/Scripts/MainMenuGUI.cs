@@ -4,6 +4,7 @@ using System.Collections;
 public class MainMenuGUI : MonoBehaviour {
 	private bool standby = true;
 	public SettingsGUI settings;
+	public GameManager game;
 	// Use this for initialization
 	void Start () {
 		standby = false;
@@ -37,6 +38,7 @@ public class MainMenuGUI : MonoBehaviour {
 
 	void SelectMap(){
 		print("MainMenu -> SelectMap");
+		game.StartGame ();
 		standby = true;
 	}
 
