@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RoundTimer : MonoBehaviour {
 	private bool timerEnabled = false;
+	private bool timerRunning = false;
 	private float totalTime  = 0.0f;
 	// Use this for initialization
 	void Start () {
@@ -15,9 +16,16 @@ public class RoundTimer : MonoBehaviour {
 	}
 
 	public void StartTimer(){
+		timerRunning = true;
+	}
+	public void StopTimer(){
+		timerRunning = false;
+	}
+
+	public void EnableTimer(){
 		timerEnabled = true;
 	}
-	
+
 	public void DisableTimer(){
 		timerEnabled = false;
 	}
@@ -26,11 +34,17 @@ public class RoundTimer : MonoBehaviour {
 		totalTime = 0.0f;
 	}
 
+	public float GetTime(){
+		return totalTime;
+	}
+
 	void OnGUI() {
 		if (timerEnabled) {
-			totalTime += Time.smoothDeltaTime;
+			if (timerRunning) {
+				totalTime += Time.smoothDeltaTime;
+			}
+			GUILayout.TextArea ("" + totalTime);
 		}
-		GUILayout.TextArea ("" + totalTime);
 	}
 
 }

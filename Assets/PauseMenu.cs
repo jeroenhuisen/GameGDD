@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour {
 			}
 			if (GUI.Button (new Rect (width / 2 - 125, height / 4 + 150, 250, 100), "Something")) {
 				//SearchHosts ();
+				Application.OpenURL ( "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 			}
 			if (GUI.Button (new Rect (width / 2 - 125, height / 4 + 300, 250, 100), "Quit go to Main Menu")) {
 				ReturnMainMenu ();

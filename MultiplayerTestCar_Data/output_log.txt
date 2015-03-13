@@ -16,14 +16,63 @@ Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\Mul
 Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.064 seconds
-desktop: 1920x1080 60Hz; virtual: 3840x1200 at 0,-120
+- Completed reload, in  0.054 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\MultiplayerTestCar_Data\Managed\System.Core.dll (this message is harmless)
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
 MainMenu -> SelectMap
  
 (Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Failed to initialize network interface. Is the listen port already in use?
+ 
+(Filename:  Line: 205)
+
+It's not possible to register a host until it is running.
+ 
+(Filename:  Line: 591)
+
+Failed to initialize network interface. Is the listen port already in use?
+ 
+(Filename:  Line: 205)
+
+It's not possible to register a host until it is running.
+ 
+(Filename:  Line: 591)
+
+Failed to initialize network interface. Is the listen port already in use?
+ 
+(Filename:  Line: 205)
+
+It's not possible to register a host until it is running.
+ 
+(Filename:  Line: 591)
+
+Failed to initialize network interface. Is the listen port already in use?
+ 
+(Filename:  Line: 205)
+
+It's not possible to register a host until it is running.
+ 
+(Filename:  Line: 591)
+
+Failed to initialize network interface. Is the listen port already in use?
+ 
+(Filename:  Line: 205)
+
+It's not possible to register a host until it is running.
+ 
+(Filename:  Line: 591)
+
+Failed to initialize network interface. Is the listen port already in use?
+ 
+(Filename:  Line: 205)
+
+It's not possible to register a host until it is running.
+ 
+(Filename:  Line: 591)
 
 Received pong from 192.168.178.19:25000
  
@@ -41,6 +90,10 @@ Received pong from 192.168.178.13:25000
  
 (Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
 
+Player start
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
 The server has disconnected from the client. Most likely the server has shut down.
  
 (Filename:  Line: 745)
@@ -50,6 +103,46 @@ The server has disconnected from the client. Most likely the server has shut dow
 (Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
 
  Disconnected from server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+disconnected from server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+DESTROYEDDDDD!!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Can't send RPC function since no connection was started.
+ 
+(Filename:  Line: 2463)
+
+(-0.5, 0.1, 0.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+ Disconnected from server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Disconnected is servert
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+ Disconnected from server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Disconnected is servert
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+ Disconnected from server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Disconnected is servert
  
 (Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
 

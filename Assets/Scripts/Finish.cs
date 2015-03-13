@@ -6,6 +6,7 @@ public class Finish : Checkpoint {
 	private int rounds = 1;
 	private bool finished = false;
 	public RoundTimer roundTimer;
+	private float bestTime = 0.0f;
 
 	void OnTriggerEnter(Collider trigger){
 		if(trigger.tag == "Player"){
@@ -13,11 +14,19 @@ public class Finish : Checkpoint {
 				passed = true;
 				previousCheckpoint.ResetPassed();
 				if(rounds < maxRounds){
+					roundTimer.StopTimer();
+					if (bestTime > roundTimer.GetTime() || bestTime <= 0.0f){
+						bestTime = roundTimer.GetTime ();
+					}
 					Debug.Log ( "Player passed finishline");
 					rounds++;
 				}else{
-					roundTimer.DisableTimer();
+					roundTimer.StopTimer();
+					if (bestTime > roundTimer.GetTime() || bestTime <= 0.0f){
+						bestTime = roundTimer.GetTime ();
+					}
 					Debug.Log ("Player finished!");
+					Debug.Log ("Best time is: " + bestTime );
 					finished = true;
 				}
 			}
@@ -28,6 +37,8 @@ public class Finish : Checkpoint {
 		if (finished) {
 			GUI.Label(new Rect(400, 400, 400,400), "Player finished!");
 			GUI.skin.label.fontSize = 100;
+			GUI.contentColor = Color.black;
 		}
+		GUI.TextArea (new Rect (10, 10, 200, 100), "" + bestTime, 200);
 	}
 }

@@ -12,9 +12,14 @@ public class CarController : MonoBehaviour {
 	public Transform wheelModel_LB;
 	public Transform wheelModel_RB;
 
+	public float startingTorque = 1000f;
+	public float acceleration = 10f;
 	public float maxTorque = 50f;
 	public float maxSteeringAngle = 50f;
 	public float maxBreakTorque = 50f;
+
+	private float torque = 0;
+	private float lastSpeed = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +28,7 @@ public class CarController : MonoBehaviour {
 		temp.y = -0.9f;
 		//temp.y = -0.5f;
 		rigidbody.centerOfMass = temp;
+		torque = startingTorque;
 	}
 
 	void FixedUpdate(){
@@ -32,6 +38,25 @@ public class CarController : MonoBehaviour {
 		float speed = Input.GetAxis ("Vertical");
 		wheel_LB.motorTorque = maxTorque * -speed;
 		wheel_RB.motorTorque = maxTorque * -speed;
+
+		/*if (lastSpeed > speed) {
+			if (torque > startingTorque) {
+				torque = torque - (acceleration / 60);
+			}
+		} else if (lastSpeed < speed) {
+			if (torque < maxTorque) {
+				torque += (acceleration / 60);
+			}
+		} else {
+			if (speed >= 1.0f) {
+				if (torque < maxTorque) {
+					torque += (acceleration / 60);
+				}
+			}
+		}
+		wheel_LB.motorTorque = torque * -speed;
+		wheel_RB.motorTorque = torque * -speed;*/
+
 		wheel_LF.steerAngle = maxSteeringAngle * angle;
 		wheel_RF.steerAngle = maxSteeringAngle * angle;
 		//wheel_LB.brakeTorque = maxBreakTorque * breakSpeed;
@@ -40,6 +65,7 @@ public class CarController : MonoBehaviour {
 		if (Input.GetButton("Submit")){
 			transform.position = new Vector3(0.0f,5.0f,0.0f);
 		}
+		lastSpeed = speed;
 	}
 
 
@@ -50,5 +76,11 @@ public class CarController : MonoBehaviour {
 		wheelModel_LB.Rotate (0, wheel_LB.rpm / 60 * 360 * Time.deltaTime, 0);*/
 
 
+	}
+
+	void OnGUI(){
+		GUI.contentColor = Color.black;
+		double speed = rigidbody.velocity.magnitude * 3.6;
+		GUI.Label (new Rect (400, 400, 400, 400), "Speed:" + speed);
 	}
 }

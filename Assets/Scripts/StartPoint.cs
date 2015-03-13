@@ -13,7 +13,7 @@ public class StartPoint : Checkpoint {
 				Debug.Log ("Player start");
 				passed = true;
 				started = true;
-				roundTimer.ResetTimer();
+				roundTimer.EnableTimer();
 				roundTimer.StartTimer();
 			}
 		} else {
