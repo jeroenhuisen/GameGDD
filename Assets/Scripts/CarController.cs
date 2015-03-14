@@ -18,17 +18,16 @@ public class CarController : MonoBehaviour {
 	public float maxSteeringAngle = 50f;
 	public float maxBreakTorque = 50f;
 
-	private float torque = 0;
-	private float lastSpeed = 0;
+//	private float torque = 0;
+//	private float lastSpeed = 0;
 
 	// Use this for initialization
 	void Start () {
+		/*
 		Vector3 temp = rigidbody.centerOfMass;
-		print (temp);
 		temp.y = -0.9f;
-		//temp.y = -0.5f;
-		rigidbody.centerOfMass = temp;
-		torque = startingTorque;
+		rigidbody.centerOfMass = temp;*/
+		//torque = startingTorque;
 	}
 
 	void FixedUpdate(){
@@ -65,7 +64,7 @@ public class CarController : MonoBehaviour {
 		if (Input.GetButton("Submit")){
 			transform.position = new Vector3(0.0f,5.0f,0.0f);
 		}
-		lastSpeed = speed;
+//		lastSpeed = speed;
 	}
 
 

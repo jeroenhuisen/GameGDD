@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class GUIManager : MonoBehaviour {
-	private int height;
+	/*private int height;
 	private int width;
 	// Use this for initialization
 	void Start () {
 		height = Screen.height;
 		width = Screen.width;
-	}
+	}*/
 	
 	// Update is called once per frame
 	void Update () {

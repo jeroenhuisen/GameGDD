@@ -34,4 +34,8 @@ public class GameManager : MonoBehaviour {
 	public bool IsActive(){
 		return gameIsActive;
 	}
+
+	public bool IsPaused(){
+		return gameIsPaused;
+	}
 }

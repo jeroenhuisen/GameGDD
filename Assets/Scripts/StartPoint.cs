@@ -3,7 +3,6 @@ using System.Collections;
 
 public class StartPoint : Checkpoint {
 	private bool started = false;
-	private bool timerEnabled = false;
 	public float totalTime = 0.0f;
 	public RoundTimer roundTimer;
 
