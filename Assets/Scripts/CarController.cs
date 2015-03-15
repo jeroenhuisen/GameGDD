@@ -17,6 +17,7 @@ public class CarController : MonoBehaviour {
 	public float maxTorque = 50f;
 	public float maxSteeringAngle = 50f;
 	public float maxBreakTorque = 50f;
+	public float antiRoll = 10f;
 
 //	private float torque = 0;
 //	private float lastSpeed = 0;
@@ -35,9 +36,76 @@ public class CarController : MonoBehaviour {
 		//float speed = Input.GetAxis ("RightTrigger");
 		//float breakSpeed = Input.GetAxis("LeftTrigger");
 		float speed = Input.GetAxis ("Vertical");
+		float travelL = 0.0f;
+		float travelR = 0.0f;
+		float travelLB = 0.0f;
+		float travelRB = 0.0f;
+
+		WheelHit hit;
+
+		bool groundedL = wheel_LF.GetGroundHit(out hit);
+		if(groundedL)
+			travelL = (-wheel_LF.transform.InverseTransformPoint(hit.point).y - wheel_LF.radius) / wheel_LF.suspensionDistance;
+		else
+			travelL = 1.0f;
+
+		bool groundedR = wheel_RF.GetGroundHit(out hit);
+		if(groundedR)
+			travelR = (-wheel_RF.transform.InverseTransformPoint(hit.point).y - wheel_RF.radius) / wheel_RF.suspensionDistance;
+		else
+			travelR = 1.0f;
+	
+		bool groundedLB = wheel_LF.GetGroundHit(out hit);
+		if(groundedLB)
+			travelLB = (-wheel_LB.transform.InverseTransformPoint(hit.point).y - wheel_LB.radius) / wheel_LB.suspensionDistance;
+		else
+			travelLB = 1.0f;
+		
+		bool groundedRB = wheel_RB.GetGroundHit(out hit);
+		if(groundedRB)
+			travelRB = (-wheel_RB.transform.InverseTransformPoint(hit.point).y - wheel_RB.radius) / wheel_RB.suspensionDistance;
+		else
+			travelRB = 1.0f;
+
+		float antiRollForce = (travelL - travelR) * antiRoll;
+		if (groundedL)
+			rigidbody.AddForceAtPosition(wheel_LF.transform.up * -antiRollForce, wheel_LF.transform.position); 
+		if (groundedR)
+			rigidbody.AddForceAtPosition(wheel_RF.transform.up * antiRollForce, wheel_RF.transform.position);
+
+		float antiRollForceB = (travelLB - travelRB) * antiRoll;
+		if (groundedLB)
+			rigidbody.AddForceAtPosition(wheel_LB.transform.up * -antiRollForce, wheel_LB.transform.position); 
+		if (groundedRB)
+			rigidbody.AddForceAtPosition(wheel_RB.transform.up * antiRollForce, wheel_RB.transform.position);
+		/*
+		if(wheel_RF.GetGroundHit(out hit)) {
+			WheelFrictionCurve forwardFriction = wheel_RF.forwardFriction;
+			forwardFriction.stiffness = hit.collider.material.staticFriction;
+			WheelFrictionCurve sidewaysFriction = wheel_RF.sidewaysFriction;
+			sidewaysFriction.stiffness = hit.collider.material.staticFriction;
+		}
+		if(wheel_RB.GetGroundHit(out hit)) {
+			WheelFrictionCurve forwardFriction = wheel_RB.forwardFriction;
+			forwardFriction.stiffness = hit.collider.material.staticFriction;
+			WheelFrictionCurve sidewaysFriction = wheel_RB.sidewaysFriction;
+			sidewaysFriction.stiffness = hit.collider.material.staticFriction;
+		}
+		if(wheel_LF.GetGroundHit(out hit)) {
+			WheelFrictionCurve forwardFriction = wheel_LF.forwardFriction;
+			forwardFriction.stiffness = hit.collider.material.staticFriction;
+			WheelFrictionCurve sidewaysFriction = wheel_LF.sidewaysFriction;
+			sidewaysFriction.stiffness = hit.collider.material.staticFriction;
+		}
+		if(wheel_LB.GetGroundHit(out hit)) {
+			WheelFrictionCurve forwardFriction = wheel_LB.forwardFriction;
+			forwardFriction.stiffness = hit.collider.material.staticFriction;
+			WheelFrictionCurve sidewaysFriction = wheel_LB.sidewaysFriction;
+			sidewaysFriction.stiffness = hit.collider.material.staticFriction;
+		}*/
+		
 		wheel_LB.motorTorque = maxTorque * -speed;
 		wheel_RB.motorTorque = maxTorque * -speed;
-
 		/*if (lastSpeed > speed) {
 			if (torque > startingTorque) {
 				torque = torque - (acceleration / 60);

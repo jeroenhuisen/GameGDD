@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI\ColorController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarController.cs">
     <Files>
       <File FileName="Assets\Scripts\GUI\ColorController.cs" Line="27" Column="8" />
+      <File FileName="Assets\Scripts\CameraController.cs" Line="56" Column="1" />
+      <File FileName="Assets\Scripts\StartPoint.cs" Line="5" Column="31" />
+      <File FileName="Assets\Scripts\CarController.cs" Line="65" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
