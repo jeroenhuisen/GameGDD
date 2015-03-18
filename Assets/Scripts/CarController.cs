@@ -152,12 +152,22 @@ public class CarController : MonoBehaviour {
 	}
 
 	public void setColor(Color color){
-		ChangeColorTo(color);
+		ChangeColorTo(new Vector3(color.r, color.g, color.b));
 	}
 
-	[RPC] void ChangeColorTo(Color color)
+	/*[RPC] void ChangeColorTo(Color color)
 	{
-		renderer.material.color = color;
+		Transform body = transform.FindChild ("Body");
+
+		body.renderer.material.color = color;
+		
+		if (networkView.isMine)
+			networkView.RPC("ChangeColorTo", RPCMode.OthersBuffered, new Vector3(color.r ,color.g, color.b));
+	}*/
+	[RPC] void ChangeColorTo(Vector3 color)
+	{
+		Transform body = transform.FindChild ("Body");
+		body.renderer.material.color = new Color(color.x, color.y, color.z, 1f);
 		
 		if (networkView.isMine)
 			networkView.RPC("ChangeColorTo", RPCMode.OthersBuffered, color);

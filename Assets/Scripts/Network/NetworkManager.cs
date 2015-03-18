@@ -10,10 +10,12 @@ public class NetworkManager : MonoBehaviour {
 	public int portNumber = 25000;
 
 	private string prefabName = "Car1";
+	private Color color;
 
 	// Use this for initialization
 	void Start () {
 	//	MasterServer.ipAddress = masterIP;
+		color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
 	}
 	
 	// Update is called once per frame
@@ -72,8 +74,8 @@ public class NetworkManager : MonoBehaviour {
 
 	private void SpawnPlayer ()
 	{
-		Network.Instantiate(Resources.Load (prefabName), new Vector3(10f,5f,-10f), Quaternion.identity, 0);
-
+		GameObject car = (GameObject) Network.Instantiate(Resources.Load (prefabName), new Vector3(10f,5f,-10f), Quaternion.identity, 0);
+		car.GetComponent<CarController>().setColor(color);
 	}
 	private void DestroyPlayer()
 	{
@@ -84,7 +86,12 @@ public class NetworkManager : MonoBehaviour {
 	public void setPlayerModel (string name){
 		prefabName = name;
 	}
-
+	public void setColor(Color colorCar){
+		color = colorCar;
+	}
+	public void setColor(Vector3 colorCar){
+		color = new Color (colorCar.x, colorCar.y, colorCar.z, 1.0f);
+	}
 	void OnGUI()
 	{
 		if (!Network.isClient && !Network.isServer)
