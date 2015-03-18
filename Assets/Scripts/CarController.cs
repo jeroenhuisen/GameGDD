@@ -75,9 +75,9 @@ public class CarController : MonoBehaviour {
 
 		float antiRollForceB = (travelLB - travelRB) * antiRoll;
 		if (groundedLB)
-			rigidbody.AddForceAtPosition(wheel_LB.transform.up * -antiRollForce, wheel_LB.transform.position); 
+			rigidbody.AddForceAtPosition(wheel_LB.transform.up * -antiRollForceB, wheel_LB.transform.position); 
 		if (groundedRB)
-			rigidbody.AddForceAtPosition(wheel_RB.transform.up * antiRollForce, wheel_RB.transform.position);
+			rigidbody.AddForceAtPosition(wheel_RB.transform.up * antiRollForceB, wheel_RB.transform.position);
 		/*
 		if(wheel_RF.GetGroundHit(out hit)) {
 			WheelFrictionCurve forwardFriction = wheel_RF.forwardFriction;
