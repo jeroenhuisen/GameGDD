@@ -15,6 +15,10 @@ public class PlayerControllerMenu : MonoBehaviour {
 	
 	}
 
+	void Awake() {
+		DontDestroyOnLoad(transform.gameObject);
+	}
+	
 	public void setColor(Color color){
 		carColor = color;
 	}

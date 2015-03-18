@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 	
 	}
+	
+	void Awake() {
+		DontDestroyOnLoad(transform.gameObject);
+	}
 
 	public void PauseGame(){
 		gameIsPaused = true;
@@ -37,5 +41,11 @@ public class GameManager : MonoBehaviour {
 
 	public bool IsPaused(){
 		return gameIsPaused;
+	}
+
+	public void LoadLevel(string name){
+		if (!gameIsActive) {
+			Application.LoadLevel (name);
+		}
 	}
 }
