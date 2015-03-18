@@ -9,7 +9,7 @@ public class NetworkManager : MonoBehaviour {
 	public int maximumPlayers = 4;
 	public int portNumber = 25000;
 
-	public GameObject playerPrefab;
+	private string prefabName = "Car1";
 
 	// Use this for initialization
 	void Start () {
@@ -72,12 +72,17 @@ public class NetworkManager : MonoBehaviour {
 
 	private void SpawnPlayer ()
 	{
-		Network.Instantiate(playerPrefab, new Vector3(10f,5f,-10f), Quaternion.identity, 0);
+		Network.Instantiate(Resources.Load (prefabName), new Vector3(10f,5f,-10f), Quaternion.identity, 0);
+
 	}
 	private void DestroyPlayer()
 	{
 		//Network.Destroy (playerPrefab);
 		Debug.Log( "DESTROYEDDDDD!!");
+	}
+
+	public void setPlayerModel (string name){
+		prefabName = name;
 	}
 
 	void OnGUI()

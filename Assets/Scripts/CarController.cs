@@ -150,4 +150,16 @@ public class CarController : MonoBehaviour {
 		double speed = rigidbody.velocity.magnitude * 3.6;
 		GUI.Label (new Rect (400, 400, 400, 400), "Speed:" + speed);
 	}
+
+	public void setColor(Color color){
+		ChangeColorTo(color);
+	}
+
+	[RPC] void ChangeColorTo(Color color)
+	{
+		renderer.material.color = color;
+		
+		if (networkView.isMine)
+			networkView.RPC("ChangeColorTo", RPCMode.OthersBuffered, color);
+	}
 }
