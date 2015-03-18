@@ -13,9 +13,12 @@ public class ColorController : MonoBehaviour {
 
 	public Image panel;
 
+	private Color color;
+	public PlayerControllerMenu playerController;
+
 	// Use this for initialization
 	void Start () {
-	
+		color = new Color(1f, 1f, 1f, 1f);
 	}
 	
 	// Update is called once per frame
@@ -23,7 +26,14 @@ public class ColorController : MonoBehaviour {
 		rText.text = "R: " + rSlider.value.ToString();
 		gText.text = "G: " + gSlider.value.ToString();
 		bText.text = "B: " + bSlider.value.ToString();
+		color.r = rSlider.value;
+		color.g = gSlider.value;
+		color.b = bSlider.value;
 
-		panel.material.color = new Color (rSlider.value, gSlider.value, bSlider.value, 1f);
+		panel.material.color = color;
+	}
+
+	public void Confirm(){
+		playerController.setColor (color);
 	}
 }
