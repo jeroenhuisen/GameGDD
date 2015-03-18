@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float speed = 10f;
-	public Transform meshMaterial;
 
 	private float lastSynchronizationTime = 0f;
 	private float syncDelay = 0f;
@@ -12,12 +11,13 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 syncStartPosition = Vector3.zero;
 	private Vector3 syncEndPosition = Vector3.zero;
 	
+
 	void Update()
 	{
 		if (networkView.isMine)
 		{
 			//InputMovement();
-			InputColorChange();
+			//InputColorChange();
 		}
 		else
 		{
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	private void InputColorChange()
+	/*private void InputColorChange()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
 			ChangeColorTo(new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)));
@@ -93,5 +93,5 @@ public class PlayerController : MonoBehaviour {
 		
 		if (networkView.isMine)
 			networkView.RPC("ChangeColorTo", RPCMode.OthersBuffered, color);
-	}
+	}*/
 }

@@ -14,7 +14,7 @@ public class ColorController : MonoBehaviour {
 	public Image panel;
 
 	private Color color;
-	public PlayerControllerMenu playerController;
+	public NetworkManager network;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +34,9 @@ public class ColorController : MonoBehaviour {
 	}
 
 	public void Confirm(){
-		playerController.setColor (color);
+		print (color.r);
+		print (color.g);
+		print (color.b);
+		network.setColor (color);
 	}
 }

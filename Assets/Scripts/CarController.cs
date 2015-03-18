@@ -155,15 +155,6 @@ public class CarController : MonoBehaviour {
 		ChangeColorTo(new Vector3(color.r, color.g, color.b));
 	}
 
-	/*[RPC] void ChangeColorTo(Color color)
-	{
-		Transform body = transform.FindChild ("Body");
-
-		body.renderer.material.color = color;
-		
-		if (networkView.isMine)
-			networkView.RPC("ChangeColorTo", RPCMode.OthersBuffered, new Vector3(color.r ,color.g, color.b));
-	}*/
 	[RPC] void ChangeColorTo(Vector3 color)
 	{
 		Transform body = transform.FindChild ("Body");

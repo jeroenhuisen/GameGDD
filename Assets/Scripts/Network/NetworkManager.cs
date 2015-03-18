@@ -15,7 +15,7 @@ public class NetworkManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	//	MasterServer.ipAddress = masterIP;
-		color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+		//color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
 	}
 	
 	// Update is called once per frame
@@ -74,8 +74,13 @@ public class NetworkManager : MonoBehaviour {
 
 	private void SpawnPlayer ()
 	{
+		print ("NetworkManager");
 		GameObject car = (GameObject) Network.Instantiate(Resources.Load (prefabName), new Vector3(10f,5f,-10f), Quaternion.identity, 0);
+		print (color.r);
+		print (color.g);
+		print (color.b);
 		car.GetComponent<CarController>().setColor(color);
+		print ("done");
 	}
 	private void DestroyPlayer()
 	{
@@ -87,10 +92,23 @@ public class NetworkManager : MonoBehaviour {
 		prefabName = name;
 	}
 	public void setColor(Color colorCar){
-		color = colorCar;
+		print ("setColor");
+		print (colorCar.b);
+		this.color = new Color (colorCar.r, colorCar.g, colorCar.b);
+		print (colorCar.b);
+		print (this.color);
+		print (color);
+		print ("setColor");
+		/*color.r = colorCar.r;
+		color.g = colorCar.g;
+		color.b = colorCar.b;*/
 	}
 	public void setColor(Vector3 colorCar){
-		color = new Color (colorCar.x, colorCar.y, colorCar.z, 1.0f);
+		print ("setColor1");	
+		this.color = new Color (colorCar.x, colorCar.y, colorCar.z, 1.0f);
+		/*color.r = colorCar.x;
+		color.g = colorCar.y;
+		color.b = colorCar.z;*/
 	}
 	void OnGUI()
 	{
@@ -99,8 +117,10 @@ public class NetworkManager : MonoBehaviour {
 			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
 				StartServer();
 			
-			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
+			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts")){
 				RefreshHostList();
+				print (color);
+			}
 			
 			if (hostList != null)
 			{
