@@ -34,9 +34,7 @@ public class ColorController : MonoBehaviour {
 	}
 
 	public void Confirm(){
-		print (color.r);
-		print (color.g);
-		print (color.b);
+		print (color);
 		network.setColor (color);
 	}
 }

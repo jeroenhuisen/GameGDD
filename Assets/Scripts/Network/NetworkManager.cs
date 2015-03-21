@@ -36,10 +36,13 @@ public class NetworkManager : MonoBehaviour {
 			hostList = MasterServer.PollHostList();
 	}
 	
-	private void StartServer()
+	public void StartServer()
 	{
-		Network.InitializeServer(maximumPlayers, portNumber, !Network.HavePublicAddress());
-		MasterServer.RegisterHost(typeName, gameName);
+		if (!Network.isClient && !Network.isServer) {
+			print ("StartServer");
+			Network.InitializeServer (maximumPlayers, portNumber, !Network.HavePublicAddress ());
+			MasterServer.RegisterHost (typeName, gameName);
+		}
 	}
 
 	void OnServerInitialized()
@@ -93,10 +96,8 @@ public class NetworkManager : MonoBehaviour {
 	}
 	public void setColor(Color colorCar){
 		print ("setColor");
-		print (colorCar.b);
 		this.color = new Color (colorCar.r, colorCar.g, colorCar.b);
 		print (colorCar.b);
-		print (this.color);
 		print (color);
 		print ("setColor");
 		/*color.r = colorCar.r;

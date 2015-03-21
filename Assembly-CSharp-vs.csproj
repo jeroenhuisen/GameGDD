@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\SettingsGUI.cs" />
      <Compile Include="Assets\Scripts\StartPoint.cs" />
      <Compile Include="Assets\Scripts\WheelController.cs" />
+     <Compile Include="Assets\SimpelCar.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Jeroen/Documents/School/Jaar3/BlokA/game/GameGDD/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

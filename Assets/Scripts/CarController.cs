@@ -24,10 +24,10 @@ public class CarController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		/*
+
 		Vector3 temp = rigidbody.centerOfMass;
 		temp.y = -0.9f;
-		rigidbody.centerOfMass = temp;*/
+		rigidbody.centerOfMass = temp;
 		//torque = startingTorque;
 	}
 
@@ -145,11 +145,11 @@ public class CarController : MonoBehaviour {
 
 	}
 
-	void OnGUI(){
+	/*void OnGUI(){
 		GUI.contentColor = Color.black;
 		double speed = rigidbody.velocity.magnitude * 3.6;
 		GUI.Label (new Rect (400, 400, 400, 400), "Speed:" + speed);
-	}
+	}*/
 
 	public void setColor(Color color){
 		ChangeColorTo(new Vector3(color.r, color.g, color.b));
@@ -162,5 +162,11 @@ public class CarController : MonoBehaviour {
 		
 		if (networkView.isMine)
 			networkView.RPC("ChangeColorTo", RPCMode.OthersBuffered, color);
+	}
+
+	private void OnCollisionEnter(Collision otherCol){
+		if (otherCol.collider.tag == "cone") {
+			this.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+		}
 	}
 }

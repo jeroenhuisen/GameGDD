@@ -6,6 +6,7 @@ public class CanvasMenuController : MonoBehaviour {
 	public Canvas colorCanvas;
 	public Canvas carCanvas;
 	public GameManager gameManager;
+	public NetworkManager networkManager;
 	// Use this for initialization
 	void Start () {
 		carCanvas.enabled = true;
@@ -30,5 +31,12 @@ public class CanvasMenuController : MonoBehaviour {
 		//add choose level
 		gameManager.LoadLevel ("Level"); 
 		gameManager.StartGame ();
+		//while (!Application.loadedLevelName.Equals("Level"));
+		networkManager.StartServer ();
+	}
+
+	public void DisableSelection(){
+		colorCanvas.enabled = false;
+		carCanvas.enabled = false;
 	}
 }
