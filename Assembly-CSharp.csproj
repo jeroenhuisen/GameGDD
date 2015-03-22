@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\StartPoint.cs" />
      <Compile Include="Assets\Scripts\WheelController.cs" />
      <Compile Include="Assets\SimpelCar.cs" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
