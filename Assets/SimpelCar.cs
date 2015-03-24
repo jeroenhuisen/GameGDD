@@ -13,7 +13,7 @@ public class SimpelCar : MonoBehaviour {
 	
 	void Update()
 	{
-		if (networkView.isMine)
+		if (GetComponent<NetworkView>().isMine)
 		{
 			InputMovement();
 			//InputColorChange();
@@ -27,22 +27,22 @@ public class SimpelCar : MonoBehaviour {
 	private void SyncedMovement()
 	{
 		syncTime += Time.deltaTime;
-		rigidbody.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+		GetComponent<Rigidbody>().position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
 	}
 	
 	void InputMovement()
 	{
 		if (Input.GetKey(KeyCode.W))
-			rigidbody.MovePosition(rigidbody.position + Vector3.forward * speed * Time.deltaTime);
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + Vector3.forward * speed * Time.deltaTime);
 		
 		if (Input.GetKey(KeyCode.S))
-			rigidbody.MovePosition(rigidbody.position - Vector3.forward * speed * Time.deltaTime);
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - Vector3.forward * speed * Time.deltaTime);
 		
 		if (Input.GetKey(KeyCode.D))
-			rigidbody.MovePosition(rigidbody.position + Vector3.right * speed * Time.deltaTime);
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + Vector3.right * speed * Time.deltaTime);
 		
 		if (Input.GetKey(KeyCode.A))
-			rigidbody.MovePosition(rigidbody.position - Vector3.right * speed * Time.deltaTime);
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - Vector3.right * speed * Time.deltaTime);
 	}
 	
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
@@ -51,10 +51,10 @@ public class SimpelCar : MonoBehaviour {
 		Vector3 syncVelocity = Vector3.zero;
 		if (stream.isWriting)
 		{
-			syncPosition = rigidbody.position;
+			syncPosition = GetComponent<Rigidbody>().position;
 			stream.Serialize(ref syncPosition);
 			
-			syncVelocity = rigidbody.velocity;
+			syncVelocity = GetComponent<Rigidbody>().velocity;
 			stream.Serialize(ref syncVelocity);
 		}
 		else
@@ -67,7 +67,7 @@ public class SimpelCar : MonoBehaviour {
 			lastSynchronizationTime = Time.time;
 			
 			syncEndPosition = syncPosition + syncVelocity * syncDelay;
-			syncStartPosition = rigidbody.position;
+			syncStartPosition = GetComponent<Rigidbody>().position;
 		}
 	}
 	
@@ -75,7 +75,7 @@ public class SimpelCar : MonoBehaviour {
 		Debug.Log (" Disconnected from server");
 		if (Network.isServer) {
 			Debug.Log ("Disconnected is servert");
-			Network.RemoveRPCs(networkView.viewID);
+			Network.RemoveRPCs(GetComponent<NetworkView>().viewID);
 			Network.Destroy(gameObject);
 		}
 	}

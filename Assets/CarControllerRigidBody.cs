@@ -12,7 +12,7 @@ public class CarControllerRigidBody : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rigidbody.maxAngularVelocity = maxSpeed;
+		GetComponent<Rigidbody>().maxAngularVelocity = maxSpeed;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +31,7 @@ public class CarControllerRigidBody : MonoBehaviour {
 			rigidbody.AddRelativeForce ((Quaternion.Euler (transform.InverseTransformDirection (0, steering * maxSteeringAngle, 0)) * Vector3.left) * 50000 * -gas);
 		}*/
 
-		rigidbody.AddRelativeForce (Vector3.back * gas * 100000, ForceMode.Force);
+		GetComponent<Rigidbody>().AddRelativeForce (Vector3.back * gas * 100000, ForceMode.Force);
 //		Vector3 speed = rigidbody.velocity;
 		//if (speed.x > 0 || speed.y > 0 || speed.z > 0) {
 		//GetComponent<Rigidbody>().rotation = Quaternion.Euler (transform.InverseTransformDirection (0, oldAngle.y + steering * maxSteeringAngle, 0));

@@ -25,9 +25,9 @@ public class CarController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Vector3 temp = rigidbody.centerOfMass;
+		Vector3 temp = GetComponent<Rigidbody>().centerOfMass;
 		temp.y = -0.9f;
-		rigidbody.centerOfMass = temp;
+		GetComponent<Rigidbody>().centerOfMass = temp;
 		//torque = startingTorque;
 	}
 
@@ -69,15 +69,15 @@ public class CarController : MonoBehaviour {
 
 		float antiRollForce = (travelL - travelR) * antiRoll;
 		if (groundedL)
-			rigidbody.AddForceAtPosition(wheel_LF.transform.up * -antiRollForce, wheel_LF.transform.position); 
+			GetComponent<Rigidbody>().AddForceAtPosition(wheel_LF.transform.up * -antiRollForce, wheel_LF.transform.position); 
 		if (groundedR)
-			rigidbody.AddForceAtPosition(wheel_RF.transform.up * antiRollForce, wheel_RF.transform.position);
+			GetComponent<Rigidbody>().AddForceAtPosition(wheel_RF.transform.up * antiRollForce, wheel_RF.transform.position);
 
 		float antiRollForceB = (travelLB - travelRB) * antiRoll;
 		if (groundedLB)
-			rigidbody.AddForceAtPosition(wheel_LB.transform.up * -antiRollForceB, wheel_LB.transform.position); 
+			GetComponent<Rigidbody>().AddForceAtPosition(wheel_LB.transform.up * -antiRollForceB, wheel_LB.transform.position); 
 		if (groundedRB)
-			rigidbody.AddForceAtPosition(wheel_RB.transform.up * antiRollForceB, wheel_RB.transform.position);
+			GetComponent<Rigidbody>().AddForceAtPosition(wheel_RB.transform.up * antiRollForceB, wheel_RB.transform.position);
 		/*
 		if(wheel_RF.GetGroundHit(out hit)) {
 			WheelFrictionCurve forwardFriction = wheel_RF.forwardFriction;
@@ -158,10 +158,10 @@ public class CarController : MonoBehaviour {
 	[RPC] void ChangeColorTo(Vector3 color)
 	{
 		Transform body = transform.FindChild ("Body");
-		body.renderer.material.color = new Color(color.x, color.y, color.z, 1f);
+		body.GetComponent<Renderer>().material.color = new Color(color.x, color.y, color.z, 1f);
 		
-		if (networkView.isMine)
-			networkView.RPC("ChangeColorTo", RPCMode.OthersBuffered, color);
+		if (GetComponent<NetworkView>().isMine)
+			GetComponent<NetworkView>().RPC("ChangeColorTo", RPCMode.OthersBuffered, color);
 	}
 
 	private void OnCollisionEnter(Collision otherCol){
