@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class CanvasMenuController : MonoBehaviour {
 	public Canvas colorCanvas;
 	public Canvas carCanvas;
+	public Canvas networkCanvas;
 	public GameManager gameManager;
-	public NetworkManager networkManager;
 	// Use this for initialization
 	void Start () {
 		carCanvas.enabled = true;
@@ -20,23 +20,31 @@ public class CanvasMenuController : MonoBehaviour {
 	public void EnableColorSelection(){
 		colorCanvas.enabled = true;
 		carCanvas.enabled = false;
+		networkCanvas.enabled = false;
 	}
 
 	public void EnableCarSelection(){
 		carCanvas.enabled = true;
 		colorCanvas.enabled = false;
+		networkCanvas.enabled = false;
+	}
+
+	public void EnableNetworkSettings(){
+		carCanvas.enabled = false;
+		colorCanvas.enabled = false;
+		networkCanvas.enabled = true;
 	}
 
 	public void EnableGame(){
 		//add choose level
 		gameManager.LoadLevel ("Level"); 
-		gameManager.StartGame ();
-		//while (!Application.loadedLevelName.Equals("Level"));
-		networkManager.StartServer ();
+		//gameManager.StartGame ();
 	}
+	
 
 	public void DisableSelection(){
 		colorCanvas.enabled = false;
 		carCanvas.enabled = false;
+		networkCanvas.enabled = false;
 	}
 }

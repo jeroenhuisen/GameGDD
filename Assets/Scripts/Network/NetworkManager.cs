@@ -5,7 +5,7 @@ public class NetworkManager : MonoBehaviour {
 
 	private const string typeName = "RC-CarsMultiplayer";
 	private const string masterIP = "127.0.0.1";
-	public string gameName = "RoomName";
+	public string gameName = "Default Room Name";
 	public int maximumPlayers = 4;
 	public int portNumber = 25000;
 
@@ -21,6 +21,10 @@ public class NetworkManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void Awake() {
+		DontDestroyOnLoad(transform.gameObject);
 	}
 
 	private HostData[] hostList;
@@ -78,6 +82,7 @@ public class NetworkManager : MonoBehaviour {
 	private void SpawnPlayer ()
 	{
 		print ("NetworkManager");
+
 		GameObject car = (GameObject) Network.Instantiate(Resources.Load (prefabName), new Vector3(10f,5f,-10f), Quaternion.identity, 0);
 		print (color.r);
 		print (color.g);
@@ -118,6 +123,9 @@ public class NetworkManager : MonoBehaviour {
 		}
 	}
 
+	public void setMaxPlayers(int players){
+		maximumPlayers = players;
+	} 
 	/*void OnGUI()
 	{
 		if (!Network.isClient && !Network.isServer)

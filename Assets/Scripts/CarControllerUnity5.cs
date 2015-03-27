@@ -1,9 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Used the carcontroller from exampleassets and edited a bit.
+
 public class CarControllerUnity5 : MonoBehaviour {
 	[SerializeField] private WheelCollider[] m_WheelColliders = new WheelCollider[4];
 	[SerializeField] private GameObject[] m_WheelMeshes = new GameObject[4];
+/*	[SerializeField] private WheelCollider leftFront;
+	[SerializeField] private WheelCollider rightFront;
+	[SerializeField] private WheelCollider leftBack;
+	[SerializeField] private WheelCollider righBack;
+
+	[SerializeField] private GameObject leftFrontMesh;
+	[SerializeField] private GameObject rightFrontMesh;
+	[SerializeField] private GameObject leftBackMesh;
+	[SerializeField] private GameObject righBackMesh;*/
 
 	[SerializeField] private Vector3 m_CentreOfMassOffset;
 
@@ -58,7 +69,12 @@ public class CarControllerUnity5 : MonoBehaviour {
 			Vector3 position;
 			m_WheelColliders [i].GetWorldPose (out position, out quat);
 			m_WheelMeshes [i].transform.position = position;
-			//quat += 90;
+
+			//rotate wheel 90 so it looks normal :)
+			Vector3 angles = quat.eulerAngles;
+			angles.y += 90;
+			quat.eulerAngles = angles;
+
 			m_WheelMeshes [i].transform.rotation = quat;
 		}
 		
