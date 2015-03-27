@@ -5,7 +5,7 @@ public class NetworkManager : MonoBehaviour {
 
 	private const string typeName = "RC-CarsMultiplayer";
 	private const string masterIP = "127.0.0.1";
-	public const string gameName = "RoomName";
+	public string gameName = "RoomName";
 	public int maximumPlayers = 4;
 	public int portNumber = 25000;
 
@@ -111,7 +111,14 @@ public class NetworkManager : MonoBehaviour {
 		color.g = colorCar.y;
 		color.b = colorCar.z;*/
 	}
-	void OnGUI()
+
+	public void changeRoomName(string newName){
+		if (!Network.isClient && !Network.isServer) {
+			gameName = newName;
+		}
+	}
+
+	/*void OnGUI()
 	{
 		if (!Network.isClient && !Network.isServer)
 		{
@@ -132,5 +139,5 @@ public class NetworkManager : MonoBehaviour {
 				}
 			}
 		}
-	}
+	}*/
 }

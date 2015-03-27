@@ -1,18 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarControllerUserInput.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Network\NetworkManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\CarControllerUserInput.cs" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\CarControllerUnity5.cs" Line="129" Column="4" />
+      <File FileName="Assets\Scripts\Network\NetworkManager.cs" Line="118" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\Assets\Scripts\CarControllerUnity5.cs" line="111" />
-      <Breakpoint file="C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\Assets\Scripts\CarControllerUnity5.cs" line="59" />
-      <Breakpoint file="C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\Assets\Scripts\CarControllerUserInput.cs" line="21" />
-      <Breakpoint file="C:\Users\Jeroen\Documents\School\Jaar3\BlokA\game\GameGDD\Assets\Scripts\CarControllerUserInput.cs" line="11" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
