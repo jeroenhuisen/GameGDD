@@ -11,6 +11,7 @@ public class NetworkManager : MonoBehaviour {
 
 	private string prefabName = "Car1";
 	private Color color;
+	public GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
@@ -51,8 +52,13 @@ public class NetworkManager : MonoBehaviour {
 
 	void OnServerInitialized()
 	{
-		//Debug.Log("Server Initializied");
+		Debug.Log("Server Initializied");
+		gameManager.LoadLevel();
+	}
+
+	void OnLevelWasLoaded(int level) {
 		SpawnPlayer ();
+		
 	}
 
 	private void JoinServer(HostData hostData)

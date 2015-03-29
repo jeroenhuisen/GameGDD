@@ -6,11 +6,11 @@ public class CanvasMenuController : MonoBehaviour {
 	public Canvas colorCanvas;
 	public Canvas carCanvas;
 	public Canvas networkCanvas;
+	public Canvas mapCanvas;
 	public GameManager gameManager;
 	// Use this for initialization
 	void Start () {
-		carCanvas.enabled = true;
-		colorCanvas.enabled = false;
+		EnableMapSelection ();
 	}
 	
 	// Update is called once per frame
@@ -21,18 +21,28 @@ public class CanvasMenuController : MonoBehaviour {
 		colorCanvas.enabled = true;
 		carCanvas.enabled = false;
 		networkCanvas.enabled = false;
+		mapCanvas.enabled = false;
 	}
 
 	public void EnableCarSelection(){
 		carCanvas.enabled = true;
 		colorCanvas.enabled = false;
 		networkCanvas.enabled = false;
+		mapCanvas.enabled = false;
 	}
 
 	public void EnableNetworkSettings(){
 		carCanvas.enabled = false;
 		colorCanvas.enabled = false;
 		networkCanvas.enabled = true;
+		mapCanvas.enabled = false;
+	}
+
+	public void EnableMapSelection(){
+		carCanvas.enabled = false;
+		colorCanvas.enabled = false;
+		networkCanvas.enabled = false;
+		mapCanvas.enabled = true;
 	}
 
 	public void EnableGame(){
@@ -46,5 +56,6 @@ public class CanvasMenuController : MonoBehaviour {
 		colorCanvas.enabled = false;
 		carCanvas.enabled = false;
 		networkCanvas.enabled = false;
+		mapCanvas.enabled = false;
 	}
 }
