@@ -58,7 +58,6 @@ public class NetworkManager : MonoBehaviour {
 
 	void OnLevelWasLoaded(int level) {
 		SpawnPlayer ();
-		
 	}
 
 	private void JoinServer(HostData hostData)
