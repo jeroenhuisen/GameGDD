@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class Finish : Checkpoint {
 	public int maxRounds = 1;
@@ -7,6 +8,8 @@ public class Finish : Checkpoint {
 	private bool finished = false;
 	public RoundTimer roundTimer;
 	private float bestTime = 0.0f;
+
+
 
 	void OnTriggerEnter(Collider trigger){
 		if(trigger.tag == "Player"){
@@ -17,6 +20,10 @@ public class Finish : Checkpoint {
 					roundTimer.StopTimer();
 					if (bestTime > roundTimer.GetTime() || bestTime <= 0.0f){
 						bestTime = roundTimer.GetTime ();
+						StreamWriter sw = new StreamWriter("records.txt", false);
+						sw.WriteLine ("Test: ");
+						sw.WriteLine (bestTime.ToString());
+						sw.Close();
 					}
 					Debug.Log ( "Player passed finishline");
 					rounds++;
@@ -24,6 +31,10 @@ public class Finish : Checkpoint {
 					roundTimer.StopTimer();
 					if (bestTime > roundTimer.GetTime() || bestTime <= 0.0f){
 						bestTime = roundTimer.GetTime ();
+						StreamWriter sw = new StreamWriter("records.txt", false);
+						sw.WriteLine ("Test: ");
+						sw.WriteLine (bestTime.ToString());
+						sw.Close();
 					}
 					Debug.Log ("Player finished!");
 					Debug.Log ("Best time is: " + bestTime );

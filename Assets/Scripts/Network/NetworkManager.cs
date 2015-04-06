@@ -9,7 +9,7 @@ public class NetworkManager : MonoBehaviour {
 	public int maximumPlayers = 4;
 	public int portNumber = 25000;
 
-	private string prefabName = "Car1";
+	private string prefabName = "CarModel";
 	private Color color;
 	public GameManager gameManager;
 
@@ -26,7 +26,7 @@ public class NetworkManager : MonoBehaviour {
 
 	void Awake() {
 		DontDestroyOnLoad(transform.gameObject);
-	}
+	} 
 
 	private HostData[] hostList;
 	
@@ -92,7 +92,7 @@ public class NetworkManager : MonoBehaviour {
 		print (color.r);
 		print (color.g);
 		print (color.b);
-		car.GetComponent<CarController>().setColor(color);
+		car.GetComponent<CarControllerUnity5>().setColor(color);
 		print ("done");
 	}
 	private void DestroyPlayer()

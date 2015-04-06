@@ -29,8 +29,10 @@ public class ColorController : MonoBehaviour {
 		color.r = rSlider.value;
 		color.g = gSlider.value;
 		color.b = bSlider.value;
+		color.a = 1f;
 
-		panel.material.color = color;
+		panel.color = color;
+		//panel.material.color = color;
 	}
 
 	public void Confirm(){

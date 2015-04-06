@@ -206,6 +206,21 @@ public class CarControllerUnity5 : MonoBehaviour {
 			}
 		}
 	}*/
+
+
+	public void setColor(Color color){
+		ChangeColorTo(new Vector3(color.r, color.g, color.b));
+	}
+
+	
+	[RPC] void ChangeColorTo(Vector3 color)
+	{
+		Transform body = transform.FindChild ("Body");
+		body.GetComponent<Renderer>().material.color = new Color(color.x, color.y, color.z, 1f);
+		
+		if (GetComponent<NetworkView>().isMine)
+			GetComponent<NetworkView>().RPC("ChangeColorTo", RPCMode.OthersBuffered, color);
+	}
 	
 
 }
