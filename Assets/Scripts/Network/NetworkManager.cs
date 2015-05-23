@@ -40,6 +40,11 @@ public class NetworkManager : MonoBehaviour {
 		if (msEvent == MasterServerEvent.HostListReceived)
 			hostList = MasterServer.PollHostList();
 	}
+
+    public HostData[] GetHostList()
+    {
+        return hostList;
+    }
 	
 	public void StartServer()
 	{
