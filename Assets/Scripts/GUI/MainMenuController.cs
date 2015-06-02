@@ -15,7 +15,7 @@ public class MainMenuController : MonoBehaviour {
      public static string webplayerQuitURL = "https://youtu.be/dQw4w9WgXcQ";
 #endif
 
-    // Use this for initialization
+    // Use this for initializationg
 	void Start () {
         mainMenuCanvas.enabled = true;
         createServerCanvas.enabled = false;

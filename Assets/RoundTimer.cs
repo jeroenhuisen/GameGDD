@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class RoundTimer : MonoBehaviour {
+    public Text roundTime;
+    public Text bestRoundTime;
+    public Text recordTime;
 	private bool timerEnabled = false;
 	private bool timerRunning = false;
 	private float totalTime  = 0.0f;
+    
 	// Use this for initialization
 	void Start () {
 	

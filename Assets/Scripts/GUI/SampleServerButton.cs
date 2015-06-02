@@ -8,4 +8,5 @@ public class SampleServerButton : MonoBehaviour {
     public Text mapName;
     public Text amountOfPlayers;
     public Text ping;
+    public int indexServerList;
 }

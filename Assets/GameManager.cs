@@ -4,7 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 	private bool gameIsActive = false;
 	private bool gameIsPaused = false;
-	private string levelName = "";
+	private string levelName = "Level";
 	// Use this for initialization
 	void Start () {
 	
@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour {
 	public void setLevel(string name){
 		levelName = name;
 	}
+
+    public string getLevel()
+    {
+        return levelName;
+    }
 
 	public void LoadLevel(){
 		if (!gameIsActive) {
