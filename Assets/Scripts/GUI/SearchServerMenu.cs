@@ -40,7 +40,7 @@ public class SearchServerMenu : MonoBehaviour {
 
                 newSampleServerButton.indexServerList = i;
                 newSampleServerButton.button.onClick.AddListener(() => { networkManager.JoinServer(hostList[newSampleServerButton.indexServerList]); });
-                newServerButton.transform.SetParent(serverPanel);
+                newServerButton.transform.SetParent(serverPanel, false);
             }
         }
         print(hostList);

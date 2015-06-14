@@ -4,7 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 	private bool gameIsActive = false;
 	private bool gameIsPaused = false;
-	private string levelName = "Level";
+	private string levelName = "Level1UI";
 	// Use this for initialization
 	void Start () {
 	

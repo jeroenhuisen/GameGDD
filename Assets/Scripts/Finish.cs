@@ -38,6 +38,7 @@ public class Finish : Checkpoint {
 					}
 					Debug.Log ("Player finished!");
 					Debug.Log ("Best time is: " + bestTime );
+                    DatabaseHelper dbHelper = new DatabaseHelper();
 					finished = true;
 				}
 			}

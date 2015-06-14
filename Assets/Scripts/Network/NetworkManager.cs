@@ -93,8 +93,10 @@ public class NetworkManager : MonoBehaviour {
 	private void SpawnPlayer ()
 	{
 		print ("NetworkManager");
-
-		GameObject car = (GameObject) Network.Instantiate(Resources.Load (prefabName), new Vector3(10f,5f,-10f), Quaternion.identity, 0);
+        print(prefabName);
+        Vector3 spawnPosition = new Vector3(100f, -14f, -20f);
+        print(spawnPosition);
+		GameObject car = (GameObject) Network.Instantiate(Resources.Load (prefabName), spawnPosition, Quaternion.identity, 0);
 		print (color.r);
 		print (color.g);
 		print (color.b);

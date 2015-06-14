@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour {
 		startingRotationW = transform.rotation.w;
 	}
 	*/
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		//float moveHorizontal = Input.GetAxis("Horizontal");
@@ -52,4 +53,17 @@ public class CameraController : MonoBehaviour {
 		print (startingRotationZ + mainObject.rotation.z);
 		print(startingRotationW + mainObject.rotation.w);*/
 	}
+
+
+    void OnNetworkInstantiate(NetworkMessageInfo message)
+    {
+        if (GetComponent<NetworkView>().isMine)
+        {
+            GetComponent<Camera>().enabled = true;
+        }
+        else
+        {
+            GetComponent<Camera>().enabled = false;
+        }
+    }
 }
