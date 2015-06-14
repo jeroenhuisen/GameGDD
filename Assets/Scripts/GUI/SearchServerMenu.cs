@@ -34,12 +34,12 @@ public class SearchServerMenu : MonoBehaviour {
 
                 SampleServerButton newSampleServerButton = newServerButton.GetComponent<SampleServerButton>();
                 newSampleServerButton.serverName.text = hostList[i].gameName;
-                //newSampleServerButton.mapName.text = hostList[i].gameType;
+                newSampleServerButton.mapName.text = hostList[i].comment;
                 newSampleServerButton.amountOfPlayers.text = "Players: " + hostList[i].connectedPlayers + "/" + hostList[i].playerLimit;
                 newSampleServerButton.ping.text = "999";
 
                 newSampleServerButton.indexServerList = i;
-                newSampleServerButton.button.onClick.AddListener(() => { networkManager.JoinServer(hostList[newSampleServerButton.indexServerList]); });
+                newSampleServerButton.button.onClick.AddListener(() => { networkManager.JoinServer(hostList[newSampleServerButton.indexServerList], newSampleServerButton.mapName.text); });
                 newServerButton.transform.SetParent(serverPanel, false);
             }
         }

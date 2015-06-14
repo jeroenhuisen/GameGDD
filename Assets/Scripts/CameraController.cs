@@ -60,10 +60,12 @@ public class CameraController : MonoBehaviour {
         if (GetComponent<NetworkView>().isMine)
         {
             GetComponent<Camera>().enabled = true;
+            GetComponent<AudioListener>().enabled = true;
         }
         else
         {
             GetComponent<Camera>().enabled = false;
+            GetComponent<AudioListener>().enabled = false;
         }
     }
 }

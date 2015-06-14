@@ -52,7 +52,7 @@ public class NetworkManager : MonoBehaviour {
 		if (!Network.isClient && !Network.isServer) {
 			print ("StartServer");
 			Network.InitializeServer (maximumPlayers, portNumber, !Network.HavePublicAddress ());
-			MasterServer.RegisterHost (typeName, gameName);
+			MasterServer.RegisterHost (typeName, gameName, gameManager.getLevel());
 		}
 	}
 
@@ -63,17 +63,25 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	void OnLevelWasLoaded(int level) {
-		SpawnPlayer ();
+        print("level loaded: " + level);
+        // Spawn the player if he is the server.
+        // If the player is client he should wait till he is connected to the server.
+        // This is done after the level is loaded.
+        if (Network.isServer)
+        {
+            SpawnPlayer ();
+        }
 	}
 
-	public void JoinServer(HostData hostData)
-	{   
+	public void JoinServer(HostData hostData, string levelname)
+	{
+        gameManager.LoadLevel(levelname);
 		Network.Connect(hostData);
 	}
 	
 	void OnConnectedToServer()
 	{
-		//Debug.Log("Server Joined");
+		Debug.Log("Server Joined");
 		SpawnPlayer ();
 	}
 

@@ -121,9 +121,14 @@ public class CarControllerUnity5 : MonoBehaviour {
 		
 		private void ApplyDrive(float accel, float footbrake)
 		{
-			//backwheel drive
+			/*//backwheel drive
 			float thrustTorque = accel * (m_CurrentTorque / 2f);
-			m_WheelColliders[2].motorTorque = m_WheelColliders[3].motorTorque = thrustTorque;
+			m_WheelColliders[2].motorTorque = m_WheelColliders[3].motorTorque = thrustTorque;*/
+            float thrustTorque = accel * (m_CurrentTorque / 4f);
+            for (int i = 0; i < 4; i++)
+            {
+                m_WheelColliders[i].motorTorque = thrustTorque;
+            }
 			
 			for (int i = 0; i < 4; i++)
 			{
