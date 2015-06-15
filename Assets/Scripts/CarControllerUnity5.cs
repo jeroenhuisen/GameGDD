@@ -6,15 +6,6 @@ using System.Collections;
 public class CarControllerUnity5 : MonoBehaviour {
 	[SerializeField] private WheelCollider[] m_WheelColliders = new WheelCollider[4];
 	[SerializeField] private GameObject[] m_WheelMeshes = new GameObject[4];
-/*	[SerializeField] private WheelCollider leftFront;
-	[SerializeField] private WheelCollider rightFront;
-	[SerializeField] private WheelCollider leftBack;
-	[SerializeField] private WheelCollider righBack;
-
-	[SerializeField] private GameObject leftFrontMesh;
-	[SerializeField] private GameObject rightFrontMesh;
-	[SerializeField] private GameObject leftBackMesh;
-	[SerializeField] private GameObject righBackMesh;*/
 
 	[SerializeField] private Vector3 m_CentreOfMassOffset;
 
@@ -72,9 +63,7 @@ public class CarControllerUnity5 : MonoBehaviour {
 
 			//rotate wheel 90 so it looks normal :)
 			Vector3 angles = quat.eulerAngles;
-			//angles.x += 90;
-			//angles.y += 90;
-			//angles.z += 90;
+			angles.z += 90;
 			quat.eulerAngles = angles;
 
 			m_WheelMeshes [i].transform.rotation = quat;
@@ -214,7 +203,7 @@ public class CarControllerUnity5 : MonoBehaviour {
 
 
 	public void setColor(Color color){
-		ChangeColorTo(new Vector3(color.r, color.g, color.b));
+        GetComponent<NetworkView>().RPC("ChangeColorTo", RPCMode.AllBuffered, new Vector3(color.r, color.g, color.b));
 	}
 
 	
@@ -222,9 +211,6 @@ public class CarControllerUnity5 : MonoBehaviour {
 	{
 		Transform body = transform.FindChild ("Body");
 		body.GetComponent<Renderer>().material.color = new Color(color.x, color.y, color.z, 1f);
-		
-		if (GetComponent<NetworkView>().isMine)
-			GetComponent<NetworkView>().RPC("ChangeColorTo", RPCMode.OthersBuffered, color);
 	}
 	
 

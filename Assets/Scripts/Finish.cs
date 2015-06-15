@@ -39,12 +39,18 @@ public class Finish : Checkpoint {
 					Debug.Log ("Player finished!");
 					Debug.Log ("Best time is: " + bestTime );
                     DatabaseHelper dbHelper = new DatabaseHelper();
+                    GetComponent<NetworkView>().RPC("playerFinished", RPCMode.AllBuffered, "some playername");
 					finished = true;
 				}
 			}
 		}
 	}
 
+    [RPC]
+    void playerFinished(string playername)
+    {
+        Debug.Log(playername + " has finished");
+    }
 	void OnGUI(){
 		if (finished) {
 			GUI.Label(new Rect(400, 400, 400,400), "Player finished!");

@@ -123,19 +123,12 @@ public class NetworkManager : MonoBehaviour {
 	public void setColor(Color colorCar){
 		print ("setColor");
 		this.color = new Color (colorCar.r, colorCar.g, colorCar.b);
-		print (colorCar.b);
 		print (color);
 		print ("setColor");
-		/*color.r = colorCar.r;
-		color.g = colorCar.g;
-		color.b = colorCar.b;*/
 	}
 	public void setColor(Vector3 colorCar){
 		print ("setColor1");	
 		this.color = new Color (colorCar.x, colorCar.y, colorCar.z, 1.0f);
-		/*color.r = colorCar.x;
-		color.g = colorCar.y;
-		color.b = colorCar.z;*/
 	}
 
 	public void changeRoomName(string newName){
