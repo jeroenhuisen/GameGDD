@@ -3,6 +3,8 @@ using System.Collections;
 
 public class controller : MonoBehaviour {
     public float speed;
+    public float rotationSpeed;
+    public float rotateSpeedLimiter = 0.1f;
     private Rigidbody rb;
 	// Use this for initialization
 	void Start () {
@@ -13,7 +15,8 @@ public class controller : MonoBehaviour {
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        float gas = Input.GetAxis("Triggers");
+        //float gas = Input.GetAxis("Triggers");
+        float gas = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(gas, 0.0f, 0.0f);
         Vector3 steering = new Vector3(0.0f, 0.0f, moveHorizontal);
@@ -35,29 +38,21 @@ public class controller : MonoBehaviour {
 
 
         // Steering but disabled when vehicle doesn't move forward or backwards 
-        if (rb.GetRelativePointVelocity(new Vector3(0f, 0f, 0f)).x < 5 && rb.GetRelativePointVelocity(new Vector3(0f, 0f, 0f)).x > -5)
+        //Debug.Log(rb.GetRelativePointVelocity(new Vector3(0f, 0f, 0f)));
+        Vector3 velocity = rb.GetRelativePointVelocity(new Vector3(0,0,0));
+        if (velocity.x < rotateSpeedLimiter && velocity.x > -rotateSpeedLimiter && velocity.y < rotateSpeedLimiter && velocity.y > -rotateSpeedLimiter && velocity.z < rotateSpeedLimiter && velocity.z > -rotateSpeedLimiter)
         {
-            GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * 20 * Time.deltaTime * Mathf.Abs(rb.GetRelativePointVelocity(new Vector3(0f, 0f, 0f)).x), 0));
-
+            //GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * 20 * Time.deltaTime * Mathf.Abs(rb.GetRelativePointVelocity(new Vector3(0f, 0f, 0f)).x), 0));
+            // when the velocity is very low (standing still or almost standing still) the car can't steer (rotate).
         }
         else
         {
-            GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * 100 * Time.deltaTime, 0));
+            GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * rotationSpeed * Time.deltaTime));
         }
-        // Disable sidewards movement
-        if ((moveHorizontal * 20 * Time.deltaTime * Mathf.Abs(rb.GetRelativePointVelocity(new Vector3(0f, 0f, 0f)).x)) > 1)
+        if (velocity.x >= 0 && velocity.y >= 0 && velocity.z >= 0)
         {
 
         }
-        else
-        {
-            //disable sidewards movem@tent
-            Debug.Log(rb.velocity);
-            //Debug.Log(transform.TransformPoint(rb.velocity));
-            rb.velocity.Set(rb.velocity.x, 0, 0);
-            Debug.Log(rb.velocity);
-        }
-
         //GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * 100 * Time.deltaTime, 0));
 
 

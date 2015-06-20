@@ -11,3 +11,5 @@
 *.suo
 *.userprefs
 *.pidb
+*.exe
+/MainMenu_Data
