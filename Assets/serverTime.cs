@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class serverTime : MonoBehaviour
+public class ServerTime : MonoBehaviour
 {
     public DatabaseHelper dbHelper;
     public Text timeText;

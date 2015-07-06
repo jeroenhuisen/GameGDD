@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class pbTime : MonoBehaviour {
+public class PbTime : MonoBehaviour {
     public DatabaseHelper dbHelper;
     public Text timeText;
     public GameManager gameManager;
