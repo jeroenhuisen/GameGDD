@@ -23,21 +23,7 @@ public class controller : MonoBehaviour {
 
         rb.AddRelativeForce(movement * speed * Time.deltaTime);
         Vector3 worldForcePosition = transform.TransformPoint(new Vector3(1.0f, 0.0f, 0.0f));
-        //GetComponent<Transform>().RotateAroundLocal(new Vector3(0.0f, 0.0f, 0.0f), 90);
-        /*if (rb.velocity.x > 1 || rb.velocity.y > 1 || rb.velocity.z > 1 || rb.velocity.x < -1 || rb.velocity.y < -1 || rb.velocity.z < -1)
-        {
-            GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * 5, 0));
-        }
-        else
-        {
-            GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * 5 * Mathf.Abs(rb.velocity.x), 0));
-        }*/
-
-
-        //Debug.Log(rb.GetRelativePointVelocity(new Vector3(0f,0f,0f)));
-
-
-        // Steering but disabled when vehicle doesn't move forward or backwards 
+        
         //Debug.Log(rb.GetRelativePointVelocity(new Vector3(0f, 0f, 0f)));
         Vector3 velocity = rb.GetRelativePointVelocity(new Vector3(0,0,0));
         if (velocity.x < rotateSpeedLimiter && velocity.x > -rotateSpeedLimiter && velocity.y < rotateSpeedLimiter && velocity.y > -rotateSpeedLimiter && velocity.z < rotateSpeedLimiter && velocity.z > -rotateSpeedLimiter)
@@ -47,16 +33,24 @@ public class controller : MonoBehaviour {
         }
         else
         {
+            //GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * rotationSpeed * Time.deltaTime));
+        }
+        Debug.Log(rb.transform.InverseTransformDirection(rb.velocity));
+       /* if (transform.InverseTransformDirection(rb.velocity).x >= 0)
+        {
             GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * rotationSpeed * Time.deltaTime));
         }
-        if (velocity.x >= 0 && velocity.y >= 0 && velocity.z >= 0)
+        else
         {
-
-        }
+            GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * rotationSpeed * Time.deltaTime * -1));
+        }*/
         //GetComponent<Transform>().Rotate(new Vector3(0, moveHorizontal * 100 * Time.deltaTime, 0));
 
 
-        //GetComponent<Rigidbody>().AddForceAtPosition(steering * speed/10 *  Time.deltaTime, worldForcePosition);
+        //GetComponent<Rigidbody>().AddForceAtPosition(steering * speed *2 *  Time.deltaTime, worldForcePosition);
+        GetComponent<Rigidbody>().AddForceAtPosition(steering * rotationSpeed *20* Time.deltaTime, new Vector3(1.0f, 0.0f, 0.0f));
 
     }
+
+    public float CurrentSpeed { get { return rb.velocity.magnitude * 2.23693629f; } }
 }

@@ -43,12 +43,22 @@ public class RoundTimer : MonoBehaviour {
 		return totalTime;
 	}
 
+    public string convertTimeToString(float time)
+    {
+        return string.Format("{0:0}:{1:00}.{2:00}",
+                     Mathf.Floor(totalTime / 60),//minutes
+                     Mathf.Floor(totalTime) % 60,//seconds
+                     Mathf.Floor((totalTime * 100) % 100));//miliseconds
+    }
+
 	void OnGUI() {
 		if (timerEnabled) {
 			if (timerRunning) {
 				totalTime += Time.smoothDeltaTime;
 			}
-			GUILayout.TextArea ("" + totalTime);
+           
+            roundTime.text = convertTimeToString(totalTime);
+			//GUILayout.TextArea ("" + totalTime);
 		}
 	}
 

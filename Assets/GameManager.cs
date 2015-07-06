@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour {
 	private bool gameIsActive = false;
 	private bool gameIsPaused = false;
 	private string levelName = "Level1UI";
+    private string playerName = "defaultPlayerName";
+    private string carName = "car";
 	// Use this for initialization
 	void Start () {
 	
@@ -50,6 +52,26 @@ public class GameManager : MonoBehaviour {
     public string getLevel()
     {
         return levelName;
+    }
+
+    public void setPlayerName(string name)
+    {
+        playerName = name;
+    }
+
+    public string getPlayerName()
+    {
+        return playerName;
+    }
+
+    public void setCarName(string name)
+    {
+        carName = name;
+    }
+
+    public string getCarName()
+    {
+        return carName;
     }
 
 	public void LoadLevel(){

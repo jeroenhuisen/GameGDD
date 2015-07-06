@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Checkpoint : MonoBehaviour {
 	public Checkpoint previousCheckpoint;
+    public Text checkpointCounter;
 	protected bool passed = false;
 	// Use this for initialization
 	void Start () {
@@ -19,7 +21,10 @@ public class Checkpoint : MonoBehaviour {
 			if(previousCheckpoint.IsPassed()){
 				passed = true;
 				previousCheckpoint.ResetPassed();
-				Debug.Log("Player passed the checkpoint" + trigger.GetInstanceID());
+                int checkpointNumber = int.Parse(checkpointCounter.text);
+                checkpointNumber += 1;
+                checkpointCounter.text = checkpointNumber.ToString();
+                Debug.Log("Player passed checkpoint: " + checkpointNumber);
 			}
 		}
 	}

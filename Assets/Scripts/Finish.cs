@@ -7,6 +7,7 @@ public class Finish : Checkpoint {
 	private int rounds = 1;
 	private bool finished = false;
 	public RoundTimer roundTimer;
+    public GameManager gameManager;
 	private float bestTime = 0.0f;
 
 
@@ -20,10 +21,10 @@ public class Finish : Checkpoint {
 					roundTimer.StopTimer();
 					if (bestTime > roundTimer.GetTime() || bestTime <= 0.0f){
 						bestTime = roundTimer.GetTime ();
-						StreamWriter sw = new StreamWriter("records.txt", false);
+						/*StreamWriter sw = new StreamWriter("records.txt", false);
 						sw.WriteLine ("Test: ");
 						sw.WriteLine (bestTime.ToString());
-						sw.Close();
+						sw.Close();*/
 					}
 					Debug.Log ( "Player passed finishline");
 					rounds++;
@@ -31,15 +32,16 @@ public class Finish : Checkpoint {
 					roundTimer.StopTimer();
 					if (bestTime > roundTimer.GetTime() || bestTime <= 0.0f){
 						bestTime = roundTimer.GetTime ();
-						StreamWriter sw = new StreamWriter("records.txt", false);
+						/*StreamWriter sw = new StreamWriter("records.txt", false);
 						sw.WriteLine ("Test: ");
 						sw.WriteLine (bestTime.ToString());
-						sw.Close();
+						sw.Close();*/
 					}
 					Debug.Log ("Player finished!");
 					Debug.Log ("Best time is: " + bestTime );
                     DatabaseHelper dbHelper = new DatabaseHelper();
-                    GetComponent<NetworkView>().RPC("playerFinished", RPCMode.AllBuffered, "some playername");
+                    dbHelper.insertNewRoundTime(gameManager.getLevel(), gameManager.getCarName(), roundTimer.convertTimeToString(bestTime), gameManager.getPlayerName());
+                    GetComponent<NetworkView>().RPC("playerFinished", RPCMode.AllBuffered, gameManager.getPlayerName());
 					finished = true;
 				}
 			}
@@ -51,12 +53,4 @@ public class Finish : Checkpoint {
     {
         Debug.Log(playername + " has finished");
     }
-	void OnGUI(){
-		if (finished) {
-			GUI.Label(new Rect(400, 400, 400,400), "Player finished!");
-			GUI.skin.label.fontSize = 100;
-			GUI.contentColor = Color.black;
-		}
-		GUI.TextArea (new Rect (10, 10, 200, 100), "" + bestTime, 200);
-	}
 }

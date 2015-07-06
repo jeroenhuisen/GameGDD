@@ -5,7 +5,8 @@ namespace UnityStandardAssets.Vehicles.Car
 {
     public class SpeedGUI : MonoBehaviour
     {
-        public CarController car;
+        //public CarController car;
+        public controller car;
         public Text speedText;
         // Use this for initialization
         void Start()
