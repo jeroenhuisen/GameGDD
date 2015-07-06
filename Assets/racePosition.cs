@@ -42,10 +42,13 @@ public class RacePosition : MonoBehaviour {
                     if (player.DistanceToNextCheckpoint < comparePlayer.DistanceToNextCheckpoint)
                     {
                         // distance is smaller so player is faster.
-                    }else{
+                    }
+                    else
+                    {
                         // distance is bigger or equal, player is slower 
                     }
                 }
+            }
           
         }
 	}
