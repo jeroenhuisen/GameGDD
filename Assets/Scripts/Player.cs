@@ -6,6 +6,8 @@ class Player{
     private int currentCheckpoint;
     private int currentLap;
     private float distanceToNextCheckpoint;
+    private GameObject nextCheckpoint;
+    private GameObject car;
 
     public Player()
     {
@@ -46,6 +48,7 @@ class Player{
         }
         set
         {
+            // can be calculated with float distance = Vector3.Distance (object1.transform.position, object2.transform.position);
             distanceToNextCheckpoint = value;
         }
     } 
@@ -78,5 +81,9 @@ class Player{
     {
         ResetCheckpoint();
         currentLap++;
+    }
+
+    public void updateDistance(){
+        distanceToNextCheckpoint = Vector3.Distance(nextCheckpoint.transform.position, car.transform.position);
     }
 }

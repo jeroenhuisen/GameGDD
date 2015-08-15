@@ -10,8 +10,6 @@ public class Finish : Checkpoint {
     public GameManager gameManager;
 	private float bestTime = 0.0f;
 
-
-
 	void OnTriggerEnter(Collider trigger){
 		if(trigger.tag == "Player"){
 			if(previousCheckpoint.IsPassed()){

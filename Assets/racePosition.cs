@@ -14,8 +14,11 @@ public class RacePosition : MonoBehaviour {
 	    //checkPosition
         foreach (Player player in playerList)
         {
+            int checkPosition = 0;
             // Wrong this should be fixed
-            Player comparePlayer = new Player();
+            Player comparePlayer = playerList[checkPosition];
+            // update the distance between the car and the next checkpoint
+            player.updateDistance();
             // Check lap
             if (player.CurrentLap > comparePlayer.CurrentLap)
             {
